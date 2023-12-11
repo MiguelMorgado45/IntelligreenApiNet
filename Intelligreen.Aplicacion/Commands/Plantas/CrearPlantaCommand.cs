@@ -7,8 +7,16 @@ namespace Intelligreen.Aplicacion.Commands.Plantas
     {
         public string Nombre { get; set; } = null!;
         public string NombreCientifico { get; set; } = null!;
+        public string Descripcion { get; set; } = null!;
         public Dificultad Dificultad { get; set; }
         public string ImgUrl { get; set; } = null!;
+        public double MinTempAmb { get; set; }
+        public double MaxTempAmb { get; set; }
+        public double MinHumedadAmb { get; set; }
+        public double MaxHumedadAmb { get; set; }
+        public double MinHumedadSuelo { get; set; }
+        public double MaxHumedadSuelo { get; set; }
+        public IList<string> Cuidados { get; set; } = new List<string>();
     }
 
     public class CrearPlantaCommandHandler : IRequestHandler<CrearPlantaCommand, Unit>
@@ -26,8 +34,16 @@ namespace Intelligreen.Aplicacion.Commands.Plantas
             {
                 Nombre = request.Nombre,
                 NombreCientifico = request.NombreCientifico,
+                Descripcion = request.Descripcion,
                 Dificultad = request.Dificultad,
                 ImgUrl = request.ImgUrl,
+                MinTempAmb = request.MinTempAmb,
+                MaxTempAmb = request.MaxTempAmb,
+                MinHumedadAmb = request.MinHumedadAmb,
+                MaxHumedadAmb = request.MaxHumedadAmb,
+                MinHumedadSuelo = request.MinHumedadSuelo,
+                MaxHumedadSuelo = request.MaxHumedadSuelo,
+                Cuidados = request.Cuidados
             });
 
             await _context.SaveChangesAsync(cancellationToken);

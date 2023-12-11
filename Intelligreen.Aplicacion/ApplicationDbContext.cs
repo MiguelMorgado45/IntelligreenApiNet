@@ -10,5 +10,7 @@ namespace Intelligreen.Aplicacion
         }
 
         public DbSet<Planta> Plantas { get; set; } = null!;
+        public DbSet<Dispositivo> Dispositivos { get; set; } = null!;
+        public DbSet<PlantaUsuario> PlantasUsuarios { get; set; } = null!;
     }
 }
