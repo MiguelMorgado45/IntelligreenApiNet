@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Intelligreen.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class SqlMotorChange : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,9 +15,9 @@ namespace Intelligreen.Api.Migrations
                 name: "Dispositivos",
                 columns: table => new
                 {
-                    DispositivoId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nombre = table.Column<string>(type: "TEXT", nullable: false),
-                    CircuitoId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    DispositivoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CircuitoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,19 +28,19 @@ namespace Intelligreen.Api.Migrations
                 name: "Plantas",
                 columns: table => new
                 {
-                    PlantaId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nombre = table.Column<string>(type: "TEXT", nullable: false),
-                    NombreCientifico = table.Column<string>(type: "TEXT", nullable: false),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: false),
-                    Dificultad = table.Column<int>(type: "INTEGER", nullable: false),
-                    ImgUrl = table.Column<string>(type: "TEXT", nullable: false),
-                    MinTempAmb = table.Column<double>(type: "REAL", nullable: false),
-                    MaxTempAmb = table.Column<double>(type: "REAL", nullable: false),
-                    MinHumedadAmb = table.Column<double>(type: "REAL", nullable: false),
-                    MaxHumedadAmb = table.Column<double>(type: "REAL", nullable: false),
-                    MinHumedadSuelo = table.Column<double>(type: "REAL", nullable: false),
-                    MaxHumedadSuelo = table.Column<double>(type: "REAL", nullable: false),
-                    Cuidados = table.Column<string>(type: "TEXT", nullable: false)
+                    PlantaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NombreCientifico = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Dificultad = table.Column<int>(type: "int", nullable: false),
+                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MinTempAmb = table.Column<double>(type: "float", nullable: false),
+                    MaxTempAmb = table.Column<double>(type: "float", nullable: false),
+                    MinHumedadAmb = table.Column<double>(type: "float", nullable: false),
+                    MaxHumedadAmb = table.Column<double>(type: "float", nullable: false),
+                    MinHumedadSuelo = table.Column<double>(type: "float", nullable: false),
+                    MaxHumedadSuelo = table.Column<double>(type: "float", nullable: false),
+                    Cuidados = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,10 +51,10 @@ namespace Intelligreen.Api.Migrations
                 name: "PlantasUsuarios",
                 columns: table => new
                 {
-                    PlantaUsuarioId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Apodo = table.Column<string>(type: "TEXT", nullable: false),
-                    PlantaId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    DispositivoId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    PlantaUsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Apodo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PlantaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DispositivoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
