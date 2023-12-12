@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CrearPlantaCommand).Assembly));
-builder.Services.AddDbContext<ApplicationDbContext>(cfg => cfg.UseInMemoryDatabase("Intelligreen"));
+builder.Services.AddDbContext<ApplicationDbContext>(cfg => cfg.UseSqlite("Data Source=.\\Database\\intelligreen.db", b => b.MigrationsAssembly("Intelligreen.Api")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

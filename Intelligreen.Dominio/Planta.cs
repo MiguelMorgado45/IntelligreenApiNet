@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Intelligreen.Dominio
 {
@@ -27,5 +28,8 @@ namespace Intelligreen.Dominio
         public double MinHumedadSuelo { get; set; }
         public double MaxHumedadSuelo { get; set; }
         public IList<string> Cuidados { get; set; } = new List<string>();
+
+        [JsonIgnore]
+        public List<PlantaUsuario> PlantaUsuarios { get; set; } = null!;
     }
 }

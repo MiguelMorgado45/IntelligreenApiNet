@@ -1,4 +1,6 @@
-﻿namespace Intelligreen.Dominio
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Intelligreen.Dominio
 {
     public class PlantaUsuario
     {
